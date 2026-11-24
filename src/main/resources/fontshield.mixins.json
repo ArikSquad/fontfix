@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "eu.mikart.fontfix.mixin",
+  "plugin": "eu.mikart.fontfix.mixin.FontShieldMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

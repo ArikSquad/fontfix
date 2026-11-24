@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+version = '1.1.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    compileOnly 'org.lwjgl:lwjgl-freetype:3.3.2'
+    compileOnly 'net.fabricmc:fabric-loader:0.20.1'
+    compileOnly 'net.fabricmc:sponge-mixin:0.17.5+mixin.0.8.7'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+    options.compilerArgs.add('-proc:none')
+}
+
+def modVersion = version.toString()
+
+processResources {
+    inputs.property('version', modVersion)
+    filesMatching('fabric.mod.json') {
+        expand(version: modVersion)
+    }
+}
